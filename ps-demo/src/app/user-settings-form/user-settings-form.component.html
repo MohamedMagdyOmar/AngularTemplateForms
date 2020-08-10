@@ -1,12 +1,13 @@
 <div class="container">
     <h2> User Settings</h2>
-    <form #form="ngForm">
+    <form #form="ngForm" ngNativeValidate>
         <!--it is prefered to wrap each control in a form group-->
         <div class="form-group">
             <!--the "for" attribute is used to link this tag with input tag that has id=name, so when you click on the label
             , it will give focus to this input control -->
             <label for="name">Name</label>
-            <input id="name" name="name" class="form-control" placeholder="Name" [(ngModel)] = "userSettings.name"/>
+            <input id="name" name="name" class="form-control" placeholder="Name" 
+            [(ngModel)] = "userSettings.name" required minlength ="5"/>
         </div>
 
         <div class="form-check form-group">
