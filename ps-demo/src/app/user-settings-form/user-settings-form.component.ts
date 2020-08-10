@@ -12,10 +12,10 @@ export class UserSettingsFormComponent implements OnInit {
     name: "Mohamed",
     emailOffers: true,
     interfaceStyle: 'dark',
-    subscriptionType: 'annual',
-    notes: ''
+    subscriptionType: 'Annual',
+    notes: 'sadfasdffsa'
   };
-  
+
   constructor() { }
 
   ngOnInit(): void {
