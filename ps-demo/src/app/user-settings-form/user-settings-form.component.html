@@ -10,6 +10,7 @@
             <label for="name">Name</label>
             <input id="name" name="name" class="form-control" placeholder="Name" 
             [(ngModel)] = "userSettings.name" required minlength ="5" #classTest #nameField="ngModel"
+            (blur)="onBlur(nameField)"
             [class.field-error]="form.submitted && nameField.invalid"/>            
             <div [hidden]="!(form.submitted && nameField.invalid)" class="alert alert-danger">Enter a name</div>
 
