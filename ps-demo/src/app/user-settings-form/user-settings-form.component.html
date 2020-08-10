@@ -7,7 +7,8 @@
             , it will give focus to this input control -->
             <label for="name">Name</label>
             <input id="name" name="name" class="form-control" placeholder="Name" 
-            [(ngModel)] = "userSettings.name" required minlength ="5"/>
+            [(ngModel)] = "userSettings.name" required minlength ="5" #classTest/>
+            {{ classTest.className}}
         </div>
 
         <div class="form-check form-group">
