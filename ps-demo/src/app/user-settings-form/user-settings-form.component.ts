@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserSettings } from '../data/user-settings';
+import { NgForm, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-user-settings-form',
@@ -9,11 +10,11 @@ import { UserSettings } from '../data/user-settings';
 export class UserSettingsFormComponent implements OnInit {
 
   originalUserSettings: UserSettings = {
-    name: "Mohamed",
-    emailOffers: true,
-    interfaceStyle: 'dark',
-    subscriptionType: 'Annual',
-    notes: 'sadfasdffsa'
+    name: null,
+    emailOffers: null,
+    interfaceStyle: null,
+    subscriptionType: null,
+    notes: null
   };
 
   // here we are using "spread operator ..." will take the original user settings, and copy each property
@@ -24,6 +25,14 @@ export class UserSettingsFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(form: NgForm){
+    console.log(form.valid);
+  }
+
+  onBlur(field : NgModel){
+    console.log(field);
   }
 
 }

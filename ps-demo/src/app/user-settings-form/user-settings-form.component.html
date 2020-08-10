@@ -1,13 +1,27 @@
 <div class="container">
     <h2> User Settings</h2>
-    <form #form="ngForm">
+    
+    <!--the form in the input parameter comes from #form-->
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
         <!--it is prefered to wrap each control in a form group-->
         <div class="form-group">
             <!--the "for" attribute is used to link this tag with input tag that has id=name, so when you click on the label
             , it will give focus to this input control -->
             <label for="name">Name</label>
-            <input id="name" name="name" class="form-control" placeholder="Name" [(ngModel)] = "userSettings.name"/>
+            <input id="name" name="name" class="form-control" placeholder="Name" 
+            [(ngModel)] = "userSettings.name" required minlength ="5" #classTest #nameField="ngModel"
+            (blur)="onBlur(nameField)"
+            [class.field-error]="form.submitted && nameField.invalid"/>            
+            <div [hidden]="!(form.submitted && nameField.invalid)" class="alert alert-danger">Enter a name</div>
+
+        
         </div>
+        <h3>dirty: {{nameField.dirty}}</h3>
+        <h3>pristine: {{nameField.pristine}}</h3>
+        <h3>touched: {{nameField.touched}}</h3>
+        <h3>untouched: {{nameField.untouched}}</h3>
+        <h3>valid: {{nameField.valid}}</h3>
+        <h3>invalid: {{nameField.invalid}}</h3>
 
         <div class="form-check form-group">
             <!--name=emailOffers this will be the name of the property in the object form-->
