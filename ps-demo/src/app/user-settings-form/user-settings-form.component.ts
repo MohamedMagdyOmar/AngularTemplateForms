@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserSettings } from '../data/user-settings';
 import { NgForm, NgModel } from '@angular/forms';
+import { DataService } from '../data/data.service';
 
 @Component({
   selector: 'app-user-settings-form',
@@ -22,13 +23,20 @@ export class UserSettingsFormComponent implements OnInit {
   // incase the user click on back or did not submit the changed values, we still keep the default value and not losing them
   userSettings: UserSettings = {... this.originalUserSettings}
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(form: NgForm){
     console.log(form.valid);
+    this.dataService.postUserSettingsForm(this.userSettings).subscribe(
+      // on success first arrow function will be executed
+      result => console.log('success: ', result),
+
+      // on failure second arrow function will be executed
+      error => console.log('error: ', error)
+    );
   }
 
   onBlur(field : NgModel){
