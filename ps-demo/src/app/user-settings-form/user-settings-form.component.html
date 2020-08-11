@@ -16,6 +16,13 @@
 
         
         </div>
+
+        <button type="button" class="btn btn-primary"
+                [(ngModel)]="singleModel" btnCheckbox
+                btnCheckboxTrue="On" btnCheckboxFalse="Off" name="singleModel">
+          {{singleModel}}
+        </button>
+
         <h3>dirty: {{nameField.dirty}}</h3>
         <h3>pristine: {{nameField.pristine}}</h3>
         <h3>touched: {{nameField.touched}}</h3>
@@ -33,6 +40,15 @@
 
         <h5>User Interface Style</h5>
         <div class="form-group">
+
+            <div class="btn-group">
+                <label class="btn btn-primary" [(ngModel)]="userSettings.interfaceStyle"
+                       btnRadio="Light" tabindex="0" role="button" name="interfaceStyle">Light</label>
+                <label class="btn btn-primary" [(ngModel)]="userSettings.interfaceStyle"
+                       btnRadio="Medium" tabindex="0" role="button" name="interfaceStyle">Medium</label>
+                <label class="btn btn-primary" [(ngModel)]="userSettings.interfaceStyle"
+                       btnRadio="Dark" tabindex="0" role="button" name="interfaceStyle">Dark</label>
+              </div>
 
             <!--all of the radio buttons should have the same "name" so they can work together-->
             <div class="form-check">
