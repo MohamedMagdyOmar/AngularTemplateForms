@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
 import { UserSettings } from './user-settings';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  postUserSettingsForm(userSettings: UserSettings): Observable<UserSettings>{
-    return of(userSettings);
+  postUserSettingsForm(userSettings: UserSettings): Observable<any>{
+
+    // you can get the url from https://putsreq.com/ to simulate web service response
+    return this.http.post('https://putsreq.com/mOYipVwYsBk7D0sZPA6L', userSettings);
+    //return of(userSettings);
   }
 }
