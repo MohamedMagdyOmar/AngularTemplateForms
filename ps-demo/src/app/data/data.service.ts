@@ -13,7 +13,7 @@ export class DataService {
   postUserSettingsForm(userSettings: UserSettings): Observable<any>{
 
     // you can get the url from https://putsreq.com/ to simulate web service response
-    return this.http.post('https://putsreq.com/mOYipVwYsBk7D0sZPA6L', userSettings);
+    return this.http.post('https://putsreq.com/E3sCj8QNREyPoLFSH04r', userSettings);
     //return of(userSettings);
   }
 }
