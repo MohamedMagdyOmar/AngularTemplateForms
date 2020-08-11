@@ -60,9 +60,8 @@
         <div class="form-group">
             <label for="subscriptionType">Subscription Type</label>
             <select class="form-control" id="subscriptionType" name="subscriptionType" [(ngModel)] = "userSettings.subscriptionType">
-              <option>Monthly</option>
-              <option>Annual</option>
-              <option>LifeTime</option>
+              <!--|async will wait untl you gets the data, then begin to show it-->
+                <option *ngFor="let type of subscriptionType | async">{{type}}</option>
             </select>
           </div>
           
@@ -70,6 +69,8 @@
             <label for="notes">Notes</label>
             <textarea class="form-control" id="notes" rows="3" name="notes" [(ngModel)] ="userSettings.notes"></textarea>
           </div>
+
+          <div [hidden]="!postError" class="alert alert-danger">{{postErrorMessage}}</div>
 
         <button class="btn btn-primary">Send</button>
     </form>
