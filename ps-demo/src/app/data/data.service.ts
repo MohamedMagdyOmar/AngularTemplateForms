@@ -10,6 +10,10 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
+  getSubscriptionType():Observable<string[]>{
+
+    return of(['Annual', 'Monthly', 'Yearly']);
+  }
   postUserSettingsForm(userSettings: UserSettings): Observable<any>{
 
     // you can get the url from https://putsreq.com/ to simulate web service response
